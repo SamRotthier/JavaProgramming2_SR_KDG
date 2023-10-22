@@ -1,3 +1,4 @@
-rootProject.name = 'groeiproject'
+rootProject.name = 'javaprogramming2_sr'
 include 'm1_herhaling'
+include 'm2_generics'
 

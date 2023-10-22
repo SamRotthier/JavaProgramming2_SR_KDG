@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"be.kdg.java2.data","l":"Data"},{"p":"<Unnamed>","l":"Demo_2"},{"p":"be.kdg.java2.generics","l":"FIFOQueue"},{"p":"be.kdg.java2.Model","l":"Monster"},{"p":"be.kdg.java2.Model","l":"MonsterType"},{"p":"be.kdg.java2.generics","l":"PriorityQueue"}]
