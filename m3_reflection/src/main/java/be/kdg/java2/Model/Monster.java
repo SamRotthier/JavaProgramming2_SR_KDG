@@ -4,12 +4,9 @@ package be.kdg.java2.Model;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Monster implements Comparable {
-    private String name;
+public class Monster extends Creature implements Comparable {
     private double totalXp;
     private int level;
-    private MonsterType type;
-    private LocalDate birthday;
     private int battlesWon;
 
    // //Default Constructor
@@ -42,35 +39,17 @@ public class Monster implements Comparable {
         setBattlesWon(battlesWon);
     }
 
-    //getters
-    public String getName() {
-        return name;
-    }
     public double getTotalXp() {
         return totalXp;
     }
     public int getLevel() {
         return level;
     }
-    public MonsterType getType() {
-        return type;
-    }
-    public LocalDate getBirthday() {
-        return birthday;
-    }
+
     public int getBattlesWon() {
         return battlesWon;
     }
 
-    //setters
-    public void setName(String name) {
-        if (name == null){
-            throw new IllegalArgumentException("Name cannot be empty");
-        }
-        else {
-            this.name = name;
-        }
-    }
     public void setTotalXp(double totalXp) {
         if (totalXp < 0){
             throw new IllegalArgumentException("Total XP cannot be less then 0 ");
@@ -87,22 +66,7 @@ public class Monster implements Comparable {
             this.level = level;
         }
     }
-    public void setType(MonsterType type) {
-        if (type == null){
-            throw new IllegalArgumentException("Monster type cannot be nothing");
-        }
-        else {
-            this.type = type;
-        }
-    }
-    public void setBirthday(LocalDate birthday) {
-        if (birthday.isAfter(LocalDate.now().plusDays(1))){
-            throw new IllegalArgumentException("Date of birth cannot be after today");
-        }
-        else {
-            this.birthday = birthday;
-        }
-    }
+
     public void setBattlesWon(int battlesWon) {
         if (battlesWon < 0){
             throw new IllegalArgumentException("Battles won cannot be less then 0");
@@ -112,31 +76,10 @@ public class Monster implements Comparable {
         }
     }
 
-// checkes if object is unique (name)
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Monster monster = (Monster) o;
-        return getName().equals(monster.getName());
-    }
-
-    // creates unique key (with name)
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
-    public int compareTo(Object o) {
-        Monster monster = (Monster) o;
-        return this.getName().compareTo(monster.getName());
-    }
-
     @Override
     public String toString() {
-        return String.format("%-35s has %-10f for a level of %-10d, type: %-22s,  born on monthly %10s",
-                getName(),getTotalXp(),getLevel(),getType(),getBirthday());
+        return String.format("%s,has %-10f for a level of %-10d",
+                super.toString(),getTotalXp(),getLevel());
     }
 
 }

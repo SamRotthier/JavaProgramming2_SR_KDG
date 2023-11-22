@@ -17,7 +17,7 @@ public class Data {
         monsters.add(new Monster("Umakan", 20.0, 4,MonsterType.neutral,LocalDate.of(2022, 12, 25), 50));
         monsters.add(new Monster("Okuri inu", 30.5, 5,MonsterType.air,LocalDate.of(2020, 4,21), 60));
         monsters.add(new Monster("Shokera", 95.0, 50,MonsterType.fire,LocalDate.of(2023,7,20), 20));
-        monsters.add(new Monster("Chimi", 66.6, 45,MonsterType.air,LocalDate.of(2021,9,31), 10));
+        monsters.add(new Monster("Chimi", 66.6, 45,MonsterType.air,LocalDate.of(2021,9,20), 10));
         monsters.add(new Monster("Chopirako", 34.0,40,MonsterType.fire, LocalDate.of(2023,1,25), 5));
         monsters.add(new Monster("Yuki onna", 5.24, 2,MonsterType.earth,LocalDate.of(2020,10,15), 2));
         monsters.add(new Monster("Biwa bokuboku", 6.5, 2,MonsterType.neutral,LocalDate.of(2021, 4, 5),50));
