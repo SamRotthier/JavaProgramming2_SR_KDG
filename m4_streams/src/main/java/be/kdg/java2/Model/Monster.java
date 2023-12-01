@@ -1,4 +1,4 @@
-package java2.Model;
+package be.kdg.java2.Model;
 
 
 import java.time.LocalDate;
@@ -64,7 +64,7 @@ public class Monster implements Comparable {
 
     //setters
     public void setName(String name) {
-        if (name == null){
+        if (name == null || name.equals("")){
             throw new IllegalArgumentException("Name cannot be empty");
         }
         else {

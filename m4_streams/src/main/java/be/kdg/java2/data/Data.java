@@ -1,7 +1,7 @@
-package java2.data;
+package be.kdg.java2.data;
 
-import java2.Model.Monster;
-import java2.Model.MonsterType;
+import be.kdg.java2.Model.Monster;
+import be.kdg.java2.Model.MonsterType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

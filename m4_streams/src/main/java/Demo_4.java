@@ -1,8 +1,8 @@
-import java2.Model.Monster;
-import java2.Model.MonsterType;
-import java2.Model.Monsters;
-import java2.data.Data;
-import java2.util.MonsterFunctions;
+import be.kdg.java2.Model.Monster;
+import be.kdg.java2.Model.MonsterType;
+import be.kdg.java2.Model.Monsters;
+import be.kdg.java2.data.Data;
+import be.kdg.java2.util.MonsterFunctions;
 
 
 import java.time.LocalDate;

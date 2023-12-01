@@ -1,4 +1,4 @@
-package java2.Model;
+package be.kdg.java2.Model;
 
 import java.util.*;
 import java.util.function.Function;

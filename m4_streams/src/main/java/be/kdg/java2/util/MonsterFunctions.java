@@ -1,4 +1,4 @@
-package java2.util;
+package be.kdg.java2.util;
 
 import java.util.ArrayList;
 import java.util.List;
