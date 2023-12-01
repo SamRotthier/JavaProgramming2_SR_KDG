@@ -51,5 +51,4 @@ public class Monsters {
     public int getSize() {
         return monsterTreeSet.size();
     }
-
 }
