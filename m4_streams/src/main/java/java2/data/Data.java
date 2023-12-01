@@ -1,7 +1,7 @@
-package be.kdg.java2.data;
+package java2.data;
 
-import be.kdg.java2.Model.Monster;
-import be.kdg.java2.Model.MonsterType;
+import java2.Model.Monster;
+import java2.Model.MonsterType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,12 +14,12 @@ public class Data {
         monsters.add(new Monster("Yoda", 10.2, 2, MonsterType.neutral,LocalDate.of(2021, 6, 10), 5));
         monsters.add(new Monster("Pikachu", 10.5, 2,MonsterType.earth,LocalDate.of(2022,11,6), 6));
         monsters.add(new Monster("Ryugu warashi", 100.0, 55,MonsterType.fire,LocalDate.of(2020,5,1), 1000));
-        monsters.add(new Monster("Taira no Masakado", 25.3, 4, MonsterType.water,LocalDate.of(2022, 4,26), 10));
+        monsters.add(new Monster("Taira no Masakado", 25.3, 4, MonsterType.water,LocalDate.of(2023, 4,26), 10));
         monsters.add(new Monster("Umakan", 20.0, 4,MonsterType.neutral,LocalDate.of(2022, 12, 25), 50));
         monsters.add(new Monster("Okuri inu", 30.5, 5,MonsterType.air,LocalDate.of(2020, 4,21), 60));
-        monsters.add(new Monster("Shokera", 95.0, 50,MonsterType.fire,LocalDate.of(2022,7,20), 20));
-        monsters.add(new Monster("Chimi", 66.6, 45,MonsterType.air,LocalDate.of(2021,9,30), 10));
-        monsters.add(new Monster("Chopirako", 34.0,40,MonsterType.fire, LocalDate.of(2021,1,25), 5));
+        monsters.add(new Monster("Shokera", 95.0, 50,MonsterType.fire,LocalDate.of(2023,7,20), 20));
+        monsters.add(new Monster("Chimi", 66.6, 45,MonsterType.air,LocalDate.of(2021,9,20), 10));
+        monsters.add(new Monster("Chopirako", 34.0,40,MonsterType.fire, LocalDate.of(2023,1,25), 5));
         monsters.add(new Monster("Yuki onna", 5.24, 2,MonsterType.earth,LocalDate.of(2020,10,15), 2));
         monsters.add(new Monster("Biwa bokuboku", 6.5, 2,MonsterType.neutral,LocalDate.of(2021, 4, 5),50));
         monsters.add(new Monster("Hamaguri nyobo", 87.5, 49,MonsterType.neutral,LocalDate.of(2022,6,4), 60));

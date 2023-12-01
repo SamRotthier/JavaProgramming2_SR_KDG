@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"be.kdg.java2.data"},{"l":"be.kdg.java2.generics"},{"l":"be.kdg.java2.Model"}]

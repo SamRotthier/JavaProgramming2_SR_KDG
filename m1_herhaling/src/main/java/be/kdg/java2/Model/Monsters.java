@@ -6,7 +6,7 @@ public class Monsters {
     private TreeSet<Monster> monsterTreeSet;
 
     public Monsters() {
-        this.monsterTreeSet = monsterTreeSet;
+        this.monsterTreeSet = new TreeSet<Monster>();
     }
 
     public boolean add(Monster monster) {
