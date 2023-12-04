@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-12-04T17:09:28.391811200Z</date>
+  <millis>1701709768391</millis>
+  <nanos>811200</nanos>
+  <sequence>0</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setName</method>
+  <thread>1</thread>
+  <message>ERROR - Name cannot be empty for a monster</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.425840600Z</date>
+  <millis>1701709768425</millis>
+  <nanos>840600</nanos>
+  <sequence>1</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setTotalXp</method>
+  <thread>1</thread>
+  <message>ERROR - Given Total xp ( -10.5 ) is not allowed for Monster Pikachu. (TIP: total xp can not be less then zero)</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.426840200Z</date>
+  <millis>1701709768426</millis>
+  <nanos>840200</nanos>
+  <sequence>2</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setLevel</method>
+  <thread>1</thread>
+  <message>ERROR - Given Level ( -55 ) is not allowed for Monster Ryugu warashi. (TIP: level can not be less then zero)</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.426840200Z</date>
+  <millis>1701709768426</millis>
+  <nanos>840200</nanos>
+  <sequence>3</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setType</method>
+  <thread>1</thread>
+  <message>ERROR - Given type ( null ) is not allowed for Monster Ryugu warashi. (TIP: type must be filled in)</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.427861800Z</date>
+  <millis>1701709768427</millis>
+  <nanos>861800</nanos>
+  <sequence>4</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setBirthday</method>
+  <thread>1</thread>
+  <message>ERROR - Given Date of birth ( 2099-05-01 ) is not allowed for Monster Ryugu warashi. (TIP: given date can not be in the future)</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.427861800Z</date>
+  <millis>1701709768427</millis>
+  <nanos>861800</nanos>
+  <sequence>5</sequence>
+  <logger>be.kdg.java2.Model.Monster</logger>
+  <level>SEVERE</level>
+  <class>be.kdg.java2.Model.Monster</class>
+  <method>setBattlesWon</method>
+  <thread>1</thread>
+  <message>ERROR - Given amount of battles won ( -1000 ) is not allowed for Monster Ryugu warashi. (TIP: amount of battles won can not be less then zero)</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.428840400Z</date>
+  <millis>1701709768428</millis>
+  <nanos>840400</nanos>
+  <sequence>6</sequence>
+  <logger>be.kdg.java2.Model.Monsters</logger>
+  <level>FINER</level>
+  <class>be.kdg.java2.Model.Monsters</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>INFO - Monster Oni hitokuchi is added to the TreeSet.</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.428840400Z</date>
+  <millis>1701709768428</millis>
+  <nanos>840400</nanos>
+  <sequence>7</sequence>
+  <logger>be.kdg.java2.Model.Monsters</logger>
+  <level>FINER</level>
+  <class>be.kdg.java2.Model.Monsters</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>INFO - Monster Mumashika is added to the TreeSet.</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.430089800Z</date>
+  <millis>1701709768430</millis>
+  <nanos>89800</nanos>
+  <sequence>8</sequence>
+  <logger>be.kdg.java2.Model.Monsters</logger>
+  <level>FINER</level>
+  <class>be.kdg.java2.Model.Monsters</class>
+  <method>add</method>
+  <thread>1</thread>
+  <message>INFO - Monster Urashima Taro is added to the TreeSet.</message>
+</record>
+<record>
+  <date>2023-12-04T17:09:28.430499700Z</date>
+  <millis>1701709768430</millis>
+  <nanos>499700</nanos>
+  <sequence>9</sequence>
+  <logger>be.kdg.java2.Model.Monsters</logger>
+  <level>FINER</level>
+  <class>be.kdg.java2.Model.Monsters</class>
+  <method>remove</method>
+  <thread>1</thread>
+  <message>Monster Urashima Taro is removed from the TreeSet.</message>
+</record>
+</log>

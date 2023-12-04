@@ -3,6 +3,8 @@ package be.kdg.java2.Model;
 
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Monster implements Comparable {
     private String name;
@@ -11,6 +13,7 @@ public class Monster implements Comparable {
     private MonsterType type;
     private LocalDate birthday;
     private int battlesWon;
+    private  final Logger logger = Logger.getLogger(Monster.class.getName());
 
    // //Default Constructor
    // public Monster() {
@@ -65,7 +68,8 @@ public class Monster implements Comparable {
     //setters
     public void setName(String name) {
         if (name == null || name.equals("")){
-            throw new IllegalArgumentException("Name cannot be empty");
+            //throw new IllegalArgumentException("Name cannot be empty");
+            logger.log(Level.SEVERE, "ERROR - Name cannot be empty for a monster");
         }
         else {
             this.name = name;
@@ -73,7 +77,8 @@ public class Monster implements Comparable {
     }
     public void setTotalXp(double totalXp) {
         if (totalXp < 0){
-            throw new IllegalArgumentException("Total XP cannot be less then 0 ");
+            //throw new IllegalArgumentException("Total XP cannot be less then 0 ");
+            logger.log(Level.SEVERE, String.format("ERROR - Given Total xp ( %s ) is not allowed for Monster %s. (TIP: total xp can not be less then zero)",totalXp, getName()));
         }
         else {
             this.totalXp = totalXp;
@@ -81,7 +86,8 @@ public class Monster implements Comparable {
     }
     public void setLevel(int level) {
         if (level < 0){
-            throw new IllegalArgumentException("Level has to be above (or equal to) 0 ");
+            //throw new IllegalArgumentException("Level has to be above (or equal to) 0 ");
+            logger.log(Level.SEVERE, String.format("ERROR - Given Level ( %s ) is not allowed for Monster %s. (TIP: level can not be less then zero)",level, getName()));
         }
         else {
             this.level = level;
@@ -89,7 +95,8 @@ public class Monster implements Comparable {
     }
     public void setType(MonsterType type) {
         if (type == null){
-            throw new IllegalArgumentException("Monster type cannot be nothing");
+            //throw new IllegalArgumentException("Monster type cannot be nothing");
+            logger.log(Level.SEVERE, String.format("ERROR - Given type ( %s ) is not allowed for Monster %s. (TIP: type must be filled in)",type, getName()));
         }
         else {
             this.type = type;
@@ -97,7 +104,8 @@ public class Monster implements Comparable {
     }
     public void setBirthday(LocalDate birthday) {
         if (birthday.isAfter(LocalDate.now().plusDays(1))){
-            throw new IllegalArgumentException("Date of birth cannot be after today");
+            //throw new IllegalArgumentException("Date of birth cannot be after today");
+            logger.log(Level.SEVERE, String.format("ERROR - Given Date of birth ( %s ) is not allowed for Monster %s. (TIP: given date can not be in the future)",birthday, getName()));
         }
         else {
             this.birthday = birthday;
@@ -105,7 +113,8 @@ public class Monster implements Comparable {
     }
     public void setBattlesWon(int battlesWon) {
         if (battlesWon < 0){
-            throw new IllegalArgumentException("Battles won cannot be less then 0");
+            //throw new IllegalArgumentException("Battles won cannot be less then 0");
+            logger.log(Level.SEVERE, String.format("ERROR - Given amount of battles won ( %s ) is not allowed for Monster %s. (TIP: amount of battles won can not be less then zero)",battlesWon, getName()));
         }
         else {
             this.battlesWon = battlesWon;

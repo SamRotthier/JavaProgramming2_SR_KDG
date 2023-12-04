@@ -3,4 +3,7 @@ include 'm1_herhaling'
 include 'm2_generics'
 include 'm3_reflection'
 include 'm4_streams'
+include 'm5_logging'
+include 'm5_logging:log'
+findProject(':m5_logging:log')?.name = 'log'
 
