@@ -6,4 +6,5 @@ include 'm4_streams'
 include 'm5_logging'
 include 'm5_logging:log'
 findProject(':m5_logging:log')?.name = 'log'
+include 'm6_persistentie'
 
