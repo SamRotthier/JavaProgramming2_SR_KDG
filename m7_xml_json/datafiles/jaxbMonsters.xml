@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<monsters>
+    <monster name="Yoda">
+        <total-xp>10.2</total-xp>
+        <level>2</level>
+        <type>neutral</type>
+        <birthday>2021-06-10</birthday>
+        <battles-won>5</battles-won>
+    </monster>
+    <monster name="Pikachu">
+        <total-xp>10.5</total-xp>
+        <level>2</level>
+        <type>earth</type>
+        <birthday>2022-11-06</birthday>
+        <battles-won>6</battles-won>
+    </monster>
+    <monster name="Ryugu warashi">
+        <total-xp>100.0</total-xp>
+        <level>55</level>
+        <type>fire</type>
+        <birthday>2020-05-01</birthday>
+        <battles-won>1000</battles-won>
+    </monster>
+    <monster name="Taira no Masakado">
+        <total-xp>25.3</total-xp>
+        <level>4</level>
+        <type>water</type>
+        <birthday>2023-04-26</birthday>
+        <battles-won>10</battles-won>
+    </monster>
+    <monster name="Umakan">
+        <total-xp>20.0</total-xp>
+        <level>4</level>
+        <type>neutral</type>
+        <birthday>2022-12-25</birthday>
+        <battles-won>50</battles-won>
+    </monster>
+    <monster name="Okuri inu">
+        <total-xp>30.5</total-xp>
+        <level>5</level>
+        <type>air</type>
+        <birthday>2020-04-21</birthday>
+        <battles-won>60</battles-won>
+    </monster>
+    <monster name="Shokera">
+        <total-xp>95.0</total-xp>
+        <level>50</level>
+        <type>fire</type>
+        <birthday>2023-07-20</birthday>
+        <battles-won>20</battles-won>
+    </monster>
+    <monster name="Chimi">
+        <total-xp>66.6</total-xp>
+        <level>45</level>
+        <type>air</type>
+        <birthday>2021-09-20</birthday>
+        <battles-won>10</battles-won>
+    </monster>
+    <monster name="Chopirako">
+        <total-xp>34.0</total-xp>
+        <level>40</level>
+        <type>fire</type>
+        <birthday>2023-01-25</birthday>
+        <battles-won>5</battles-won>
+    </monster>
+    <monster name="Yuki onna">
+        <total-xp>5.24</total-xp>
+        <level>2</level>
+        <type>earth</type>
+        <birthday>2020-10-15</birthday>
+        <battles-won>2</battles-won>
+    </monster>
+    <monster name="Biwa bokuboku">
+        <total-xp>6.5</total-xp>
+        <level>2</level>
+        <type>neutral</type>
+        <birthday>2021-04-05</birthday>
+        <battles-won>50</battles-won>
+    </monster>
+    <monster name="Hamaguri nyobo">
+        <total-xp>87.5</total-xp>
+        <level>49</level>
+        <type>neutral</type>
+        <birthday>2022-06-04</birthday>
+        <battles-won>60</battles-won>
+    </monster>
+    <monster name="Oni hitokuchi">
+        <total-xp>6.3</total-xp>
+        <level>5</level>
+        <type>water</type>
+        <birthday>2011-07-20</birthday>
+        <battles-won>7</battles-won>
+    </monster>
+    <monster name="Mumashika">
+        <total-xp>5.1</total-xp>
+        <level>5</level>
+        <type>air</type>
+        <birthday>2020-03-30</birthday>
+        <battles-won>10</battles-won>
+    </monster>
+    <monster name="Urashima Taro">
+        <total-xp>5.6</total-xp>
+        <level>5</level>
+        <type>earth</type>
+        <birthday>2021-12-14</birthday>
+        <battles-won>25</battles-won>
+    </monster>
+</monsters>

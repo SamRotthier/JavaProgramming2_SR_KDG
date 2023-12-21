@@ -7,4 +7,5 @@ include 'm5_logging'
 include 'm5_logging:log'
 findProject(':m5_logging:log')?.name = 'log'
 include 'm6_persistentie'
+include 'm7_xml_json'
 
