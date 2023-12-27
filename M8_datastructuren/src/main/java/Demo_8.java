@@ -1,14 +1,12 @@
 import be.kdg.java2.Model.Monster;
 import be.kdg.java2.Model.MonsterFactory;
 import be.kdg.java2.Model.MonsterType;
-import be.kdg.java2.PerformanceTester;
 import be.kdg.java2.kollections.Kollections;
-import be.kdg.java2.kollections.List;
+import be.kdg.java2.kollections.lists.List;
 
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.Random;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Demo_8 {
@@ -73,6 +71,17 @@ public class Demo_8 {
         System.out.printf("Index Monster %-20s: %d",monsterList4.get(index).getName(),Kollections.lineairSearch(monsterList4, monsterList4.get(index)));
         System.out.printf("%nIndex Monster %-20s: %d",monsterList4.get(index).getName(),Kollections.binarySearch(monsterList4, monsterList4.get(index)));
         System.out.printf("%nIndex Monster %-20s: %d",unknownMonster.getName(),Kollections.lineairSearch(monsterList4, unknownMonster));
-        System.out.printf("%nIndex Monster %-20s: %d",unknownMonster.getName(),Kollections.binarySearch(monsterList4, unknownMonster));
+        System.out.printf("%nIndex Monster %-20s: %d\n",unknownMonster.getName(),Kollections.binarySearch(monsterList4, unknownMonster));
+
+        //Testing the compareListToHashmap
+        System.out.println("Testing of the comparison list to hashmap:");
+        PerformanceTester.compareListMapToHashMap(1000);
+        //Listmap: n =  1000, equalscount =  500500, nanosec =        10383200
+        //Hashmap: n =  1000, equalscount =    1709, nanosec =          740600
+
+        //Testing the compareArraySetToTreeSet
+        System.out.println("Testing of the comparison arrayset to treeset:");
+        PerformanceTester.compareArraySetToTreeSet(1000);
+
     }
 }

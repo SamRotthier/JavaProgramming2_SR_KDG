@@ -1,6 +1,6 @@
-package be.kdg.java2.kollections;
+package be.kdg.java2.kollections.lists;
 
-import be.kdg.java2.kollections.*;
+import be.kdg.java2.kollections.Kollections;
 
 public class LinkedList<E> implements List<E> {
     static class Node<V> {
@@ -43,6 +43,16 @@ public class LinkedList<E> implements List<E> {
     @Override
     public void add(E element) {
         add(size, element);
+    }
+
+    @Override
+    public boolean remove(E element) {
+        return remove(indexOf(element)) != null;
+    }
+
+    @Override
+    public boolean contains(E element) {
+        return indexOf(element) != -1;
     }
 
     @Override
@@ -96,5 +106,10 @@ public class LinkedList<E> implements List<E> {
             node = node.next;
         }
         return node.value;
+    }
+
+    @Override
+    public int indexOf(E element) {
+        return Kollections.lineairSearch(this, element);
     }
 }

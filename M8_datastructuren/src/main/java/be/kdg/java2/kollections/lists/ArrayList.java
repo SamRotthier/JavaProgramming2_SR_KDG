@@ -1,4 +1,6 @@
-package be.kdg.java2.kollections;
+package be.kdg.java2.kollections.lists;
+
+import be.kdg.java2.kollections.Kollections;
 
 public class ArrayList<E> implements List<E> {
     private static final int INITIAL_CAPACITY = 10;
@@ -7,6 +9,12 @@ public class ArrayList<E> implements List<E> {
 
     public ArrayList() {
         elements = new Object[INITIAL_CAPACITY];
+        size = 0;
+    }
+
+    //This is for the hashmap values method, otherwise there is an error.
+    public ArrayList(int givenSize) {
+        elements = new Object[givenSize];
         size = 0;
     }
 
@@ -48,6 +56,16 @@ public class ArrayList<E> implements List<E> {
     }
 
     @Override
+    public boolean remove(E element) {
+        return remove(indexOf(element)) != null;
+    }
+
+    @Override
+    public boolean contains(E element) {
+        return indexOf(element) != -1;
+    }
+
+    @Override
     public void set(int index, E element) {
         if (index > this.size || index < 0) {
             throw new IndexOutOfBoundsException("index: " + index + ", size: " + size);
@@ -84,4 +102,11 @@ public class ArrayList<E> implements List<E> {
         return (E) elements[index];
         //return null;
     }
+
+    @Override
+    public int indexOf(E element) {
+        return Kollections.lineairSearch(this,element);
+    }
+
+
 }

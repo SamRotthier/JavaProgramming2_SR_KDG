@@ -1,6 +1,7 @@
 package be.kdg.java2.kollections;
 
-import be.kdg.java2.kollections.*;
+import be.kdg.java2.kollections.lists.ArrayList;
+import be.kdg.java2.kollections.lists.List;
 
 public class Kollections {
 

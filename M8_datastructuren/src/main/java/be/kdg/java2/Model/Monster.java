@@ -12,6 +12,7 @@ public class Monster implements Comparable {
     private LocalDate birthday;
     private int battlesWon;
     public static int compareCounter = 0;
+    public static int equalsCounter = 0;
 
    // //Default Constructor
    // public Monster() {
@@ -119,6 +120,7 @@ public class Monster implements Comparable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Monster monster = (Monster) o;
+        equalsCounter++;
         return getName().equals(monster.getName());
     }
 
