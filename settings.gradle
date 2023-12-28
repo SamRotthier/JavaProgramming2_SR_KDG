@@ -9,4 +9,5 @@ findProject(':m5_logging:log')?.name = 'log'
 include 'm6_persistentie'
 include 'm7_xml_json'
 include 'M8_datastructuren'
+include 'M9_threads'
 
