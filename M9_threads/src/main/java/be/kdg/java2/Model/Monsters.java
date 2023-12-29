@@ -1,24 +1,26 @@
 package be.kdg.java2.Model;
 
 import java.util.*;
+import java.util.concurrent.ArrayBlockingQueue;
 
 public class Monsters {
-    private TreeSet<Monster> monsterTreeSet;
+    //private TreeSet<Monster> monsterTreeSet;
+    private ArrayBlockingQueue<Monster> monsterArrayBlockingQueue;
 
-    public Monsters() {
-        this.monsterTreeSet = new TreeSet<Monster>();
+    public Monsters(int capacity) {
+        this.monsterArrayBlockingQueue = new ArrayBlockingQueue<Monster>(capacity);
     }
 
     public boolean add(Monster monster) {
-        for (Monster value : monsterTreeSet)
+        for (Monster value : monsterArrayBlockingQueue)
             if (value.equals(monster))
                 return false;
-        monsterTreeSet.add(monster);
+        monsterArrayBlockingQueue.add(monster);
         return true;
     }
 
     public boolean remove(String stringName) {
-        Iterator<Monster> it = monsterTreeSet.iterator();
+        Iterator<Monster> it = monsterArrayBlockingQueue.iterator();
         while (it.hasNext()) {
             if (stringName.equals(it.next().getName())) {
                 it.remove();
@@ -29,14 +31,14 @@ public class Monsters {
     }
 
     public Monster search(String stringName) {
-        for (Monster monster : monsterTreeSet)
+        for (Monster monster : monsterArrayBlockingQueue)
             if (monster.getName().toLowerCase().equals(stringName.toLowerCase()))
                 return monster;
         return null;
     }
 
     public List<Monster> sortedOnName() {
-        List<Monster> sortedMonsters = new ArrayList<>(monsterTreeSet);
+        List<Monster> sortedMonsters = new ArrayList<>(monsterArrayBlockingQueue);
         sortedMonsters.sort(new CompareByName());
         return sortedMonsters;
     }
@@ -49,7 +51,7 @@ public class Monsters {
     }
 
     public List<Monster> sortedOnBirthday() {
-        List<Monster> sortedMonsters = new ArrayList<>(monsterTreeSet);
+        List<Monster> sortedMonsters = new ArrayList<>(monsterArrayBlockingQueue);
         sortedMonsters.sort(new CompareByBirthday());
         return sortedMonsters;
     }
@@ -62,7 +64,7 @@ public class Monsters {
     }
 
     public List<Monster> sortedOnTotalXp() {
-        List<Monster> sortedMonsters = new ArrayList<>(monsterTreeSet);
+        List<Monster> sortedMonsters = new ArrayList<>(monsterArrayBlockingQueue);
         sortedMonsters.sort(new CompareByTotalXp());
         return sortedMonsters;
     }
@@ -75,7 +77,7 @@ public class Monsters {
     }
 
     public int getSize() {
-        return monsterTreeSet.size();
+        return monsterArrayBlockingQueue.size();
     }
 
 }
