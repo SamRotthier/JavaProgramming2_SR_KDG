@@ -1,4 +1,4 @@
-package be.kdg.java2.persist;
+package be.kdg.java2.database;
 
 import be.kdg.java2.Model.Monster;
 
@@ -10,5 +10,5 @@ public interface MonsterDao {
     boolean update(Monster monster);
     Monster retrieve(String name);
     List<Monster> sortedOn(String query);
-
+    List<Monster> getAllMonsters();
 }

@@ -1,7 +1,9 @@
-package be.kdg.java2.persist;
+package be.kdg.java2.database;
 
 import be.kdg.java2.Model.Monster;
 import be.kdg.java2.Model.MonsterType;
+import be.kdg.java2.data.Data;
+import be.kdg.java2.exceptions.MonsterException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,15 +13,31 @@ import java.util.logging.Logger;
 
 public class MonsterDbDao implements MonsterDao {
     private static final Logger logger = Logger.getLogger(MonsterDbDao.class.getName());
-    private Connection connection = null;
+    private final Connection connection;
 
-    public MonsterDbDao(String databasePath) {
+    private static MonsterDbDao monsterDbDao;
+
+    public static MonsterDbDao getInstance(String databasePath) {
+        if (monsterDbDao == null){
+            monsterDbDao = new MonsterDbDao(databasePath);
+        }
+        return monsterDbDao;
+    }
+
+    private MonsterDbDao(String databasePath) {
+        //connection
         try {
             connection = DriverManager.getConnection("jdbc:hsqldb:file:" + databasePath, "sa", "");
-            createTable();
         } catch (SQLException e) {
-            System.err.println("Fatal error: cannot create connection ");
-            System.exit(1);
+            logger.warning("Issue while trying to make connection:" + e.getMessage());
+            throw new MonsterException(e);
+        }
+        //table
+        try{
+            createTable();
+        }catch(MonsterException e){
+            logger.warning("Issue while trying to make the table:" + e.getMessage());
+            throw e;
         }
     }
 
@@ -27,26 +45,36 @@ public class MonsterDbDao implements MonsterDao {
         try {
             if (connection != null) connection.close();
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            logger.warning("Issue while trying to close the db connection:" + e.getMessage());
+            throw new MonsterException(e);
         }
     }
 
     private void createTable() {
         try {
-            Statement statement = connection.createStatement();
-            statement.execute("DROP TABLE monstertable IF EXISTS");
-            statement.execute("CREATE TABLE monstertable" +
-                    "(" +
-                    "id INTEGER IDENTITY," +
-                    "name VARCHAR(30) NOT NULL," +
-                    "totalXp DOUBLE NOT NULL," +
-                    "level INT NOT NULL," +
-                    "type VARCHAR(10) NOT NULL," +
-                    "birthday DATE NOT NULL," +
-                    "battlesWon INT NOT NULL,)");
-            statement.close();
+            DatabaseMetaData dbm = connection.getMetaData();
+            ResultSet tables = dbm.getTables(null, null, "monstertable", null);
+            if (!tables.next()) {
+                Statement statement = connection.createStatement();
+                statement.execute("DROP TABLE monstertable IF EXISTS");
+                statement.execute("CREATE TABLE monstertable" +
+                        "(" +
+                        "id INTEGER IDENTITY," +
+                        "name VARCHAR(30) NOT NULL," +
+                        "totalXp DOUBLE NOT NULL," +
+                        "level INT NOT NULL," +
+                        "type VARCHAR(10) NOT NULL," +
+                        "birthday DATE NOT NULL," +
+                        "battlesWon INT NOT NULL,)");
+                statement.close();
+                logger.info("Empty table is created");
+                Data.getData().forEach(this::insert);
+                logger.info("Empty is now filled with data");
+            }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Cannot create table " + e.getMessage());
+            throw new MonsterException(e);
         }
     }
 
@@ -65,13 +93,20 @@ public class MonsterDbDao implements MonsterDao {
             statement.setInt(6, monster.getBattlesWon());
             int count = statement.executeUpdate();
             ResultSet resultSet = statement.getGeneratedKeys();
-            if (resultSet.next()) monster.setId(resultSet.getInt(1));
+            if (resultSet.next()){
+                monster.setId(resultSet.getInt(1));
+            }
             resultSet.close();
             statement.close();
-            if (count == 1) return true;
+            if (count == 1){
+                logger.info("Record is inserted into the table:" + monster.getName());
+                return true;
+            }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, String.format("Error while trying insert %s - ", monster.getName()) + e.getMessage());
+            throw new MonsterException(e);
         }
+        logger.info("Record was not inserted into the table:" + monster.getName());
         return false;
     }
 
@@ -79,7 +114,6 @@ public class MonsterDbDao implements MonsterDao {
     public Monster retrieve(String name) {
         Monster monster = null;
         try {
-
             PreparedStatement statement = connection.prepareStatement(
                     "SELECT * FROM monstertable WHERE name = ?"
             );
@@ -99,6 +133,7 @@ public class MonsterDbDao implements MonsterDao {
             statement.close();
         } catch (SQLException e) {
             logger.log(Level.SEVERE, String.format("could not retrieve %s - ", name) + e.getMessage());
+            throw new MonsterException(e);
         }
         return monster;
     }
@@ -118,10 +153,15 @@ public class MonsterDbDao implements MonsterDao {
             statement.setInt(7, monster.getId());
             int count = statement.executeUpdate();
             statement.close();
-            if (count == 1) return true;
+            if (count == 1){
+                logger.info("The record update was successful:" + monster.getName());
+                return true;
+            }
         } catch (SQLException e) {
             logger.log(Level.SEVERE, String.format("could not update %s - ", monster.getName()) + e.getMessage());
+            throw new MonsterException(e);
         }
+        logger.info("The record update failed:"  + monster.getName());
         return false;
     }
 
@@ -136,10 +176,15 @@ public class MonsterDbDao implements MonsterDao {
             }
             int count = statement.executeUpdate();
             statement.close();
-            if (count == 1) return true;
+            if (count == 1){
+                logger.info("The record was successfully deleted:" + name);
+                return true;
+            }
         } catch (SQLException | IllegalArgumentException e) {
             logger.log(Level.SEVERE, String.format("could not delete %s - ", name) + e.getMessage());
+            throw new MonsterException(e);
         }
+        logger.info("The record was not deleted:" + name);
         return false;
     }
 
@@ -163,8 +208,14 @@ public class MonsterDbDao implements MonsterDao {
             resultSet.close();
         } catch (SQLException e) {
             logger.log(Level.SEVERE, "Error while sorting - " + e.getMessage());
+            throw new MonsterException(e);
         }
         return monsters;
+    }
+
+    @Override
+    public List<Monster> getAllMonsters() {
+        return sortedOnName();
     }
 
     public List<Monster> sortedOnName() {

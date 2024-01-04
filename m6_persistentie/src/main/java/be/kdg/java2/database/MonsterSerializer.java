@@ -1,6 +1,5 @@
-package be.kdg.java2.persist;
+package be.kdg.java2.database;
 
-import be.kdg.java2.Model.Monster;
 import be.kdg.java2.Model.Monsters;
 
 import java.io.*;
