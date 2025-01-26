@@ -1,3 +1,5 @@
+In this school assignment I made different excersises on some more advanced techniques in Java.
+
 # Groeiproject Programmeren 2 - Java
 
 * Naam: Sam Rotthier
